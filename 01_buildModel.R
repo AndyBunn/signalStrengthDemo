@@ -13,11 +13,9 @@
 # Outputs: station01_surface.tif, station02_surface.tif, station03_surface.tif
 #
 ################################################################################
-rm(list=ls())
 library(tidyverse)
 library(terra)
 library(tidyterra)
-library(sf)
 library(gstat)
 
 # read in sample data (e.g., the data that comes from the GPS-enabled tags)
@@ -53,8 +51,8 @@ cor(station01_gstat_skill$observed, station01_gstat_skill$signalStrength.pred)^2
 # Step 2. Fit an emiprical variogram to the model residuals and plot it.
 station01_gstat_obsVariogram <- variogram(station01_gstat)
 plot(station01_gstat_obsVariogram)
-# in this case a linear model is probably best.
-# NB. The variogram model will need to be fit to data and linear might not be the most
+# in this case a spherical model is probably best.
+# NB. The variogram model will need to be fit to data and spherical might not be the most
 # appropriate.
 
 # Step 3. Fit the variogram model and plot it
@@ -120,8 +118,8 @@ cor(station02_gstat_skill$observed, station02_gstat_skill$signalStrength.pred)^2
 # Step 2. Fit an emiprical variogram to the model residuals and plot it.
 station02_gstat_obsVariogram <- variogram(station02_gstat)
 plot(station02_gstat_obsVariogram)
-# in this case a linear model is probably best.
-# NB. The variogram model will need to be fit to data and linear might not be the most
+# in this case a spherical model is probably best.
+# NB. The variogram model will need to be fit to data and spherical might not be the most
 # appropriate.
 
 # Step 3. Fit the variogram model and plot it
@@ -187,8 +185,8 @@ cor(station03_gstat_skill$observed, station03_gstat_skill$signalStrength.pred)^2
 # Step 2. Fit an emiprical variogram to the model residuals and plot it.
 station03_gstat_obsVariogram <- variogram(station03_gstat)
 plot(station03_gstat_obsVariogram)
-# in this case a linear model is probably best.
-# NB. The variogram model will need to be fit to data and linear might not be the most
+# in this case a spherical model is probably best.
+# NB. The variogram model will need to be fit to data and spherical might not be the most
 # appropriate.
 
 # Step 3. Fit the variogram model and plot it
